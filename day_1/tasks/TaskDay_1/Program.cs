@@ -108,24 +108,24 @@
 
 
 
-class Node//Мы создаем класс.Сохранится в кучу.В его поля мы создаем публичный тип инт и... .
-{
-    public int Value;
-    public Node Next;
-}
+//class Node//Мы создаем класс.Сохранится в кучу.В его поля мы создаем публичный тип инт и... .
+//{
+//    public int Value;
+//    public Node Next;
+//}
 
-class MyClass
-{
-    void Code5()//Мы здесь создаем метод и он сохранится в стеке
-    {
-        Node firstNode = new Node { Value = 1 };
-        Node secondNode = new Node { Value = 2 };
-        Node thirdNode = new Node { Value = 3 };
+//class MyClass
+//{
+//    void Code5()//Мы здесь создаем метод и он сохранится в стеке
+//    {
+//        Node firstNode = new Node { Value = 1 };
+//        Node secondNode = new Node { Value = 2 };
+//        Node thirdNode = new Node { Value = 3 };
 
-        firstNode.Next = secondNode;
-        secondNode.Next = thirdNode;
+//        firstNode.Next = secondNode;
+//        secondNode.Next = thirdNode;
 
-        Node tempNode = firstNode;
-        tempNode.Value = 4;
-    }
-}
+//        Node tempNode = firstNode;
+//        tempNode.Value = 4;
+//    }
+//}
