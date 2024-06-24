@@ -7,56 +7,39 @@ class Program
     {
         string path = "file.txt";
         FileManager fileManager = new FileManager(path);
-        fileManager.WriteToFile(path);
-        fileManager.ReadFromFile();
-        Console.WriteLine(fileManager.ReadFromFile);
-
+        fileManager.WriteToFile("test");
+        string read = fileManager.ReadFromFile();
+        Console.WriteLine(read);
     }
 }
 
-public class FileManager : IDisposable
+public class FileManager
 {
 
-    StreamWriter _stream;
+    private string _filePath;
     public FileManager(string path)
     {
-        _stream = new StreamWriter(path);
+        _filePath = path;
     }
     public void WriteToFile(string filePath)
     {
 
-        using (FileStream fs = File.Create(filePath))
+        using (FileStream fs = new FileStream(_filePath, FileMode.Create, FileAccess.Write))
         {
-            _stream.WriteLine(filePath);
-            _stream.Flush();
-        }
-    }
-    public void Dispose()
-    {
-        _stream.Close();
-    }
-    bool _disposed;
-    protected void Dispose(bool disposing)
-    {
-        if (!_disposed)
-        {
-            if (disposing)
+            using (StreamWriter writer = new StreamWriter(fs))
             {
-                _stream.Dispose();
+                writer.Write(filePath);
             }
         }
-        _disposed = true;
     }
-    public void ReadFromFile()
+
+    public string ReadFromFile()
     {
-        using (FileStream fs = File.OpenRead(_stream.ToString()))
+        using (FileStream fs = new FileStream(_filePath, FileMode.Open, FileAccess.Read))
         {
-            byte[] buffer = new byte[1024];
-            UTF8Encoding uTF8 = new UTF8Encoding(true);
-            int readLen;
-            while ((readLen = fs.Read(buffer, 0, buffer.Length)) > 0)
+            using (StreamReader reader = new StreamReader(fs))
             {
-                Console.WriteLine(uTF8.GetString(buffer, 0, readLen));
+                return reader.ReadToEnd();
             }
         }
     }
@@ -65,4 +48,5 @@ public class FileManager : IDisposable
         byte[] bytes = new UTF8Encoding(true).GetBytes(value);
         fs.Write(bytes, 0, bytes.Length);
     }
+
 }
