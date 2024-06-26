@@ -25,7 +25,7 @@ class Program
 
     static void WriteToFile()
     {
-        MyFileWriter myFileWriter2 = new MyFileWriter("file.txt");
+        using MyFileWriter myFileWriter2 = new MyFileWriter("file.txt");
         myFileWriter2.WriteLine("Line 1");
     }
 }
@@ -47,18 +47,22 @@ public class MyFileWriter : IDisposable
     public void Dispose()
     {
         Dispose(true);
+
     }
 
     bool disposed;
     protected void Dispose(bool disposing)
     {
+
         if (disposed)
             return;
 
         if (disposing)
         {
+
             //Clean up managed code
-            streamWriter.Dispose();
+            streamWriter.Close();
+            GC.SuppressFinalize(this);
         }
         //clean up unmanaged code
         disposed = true;

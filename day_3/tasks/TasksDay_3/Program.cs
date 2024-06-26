@@ -6,41 +6,52 @@ class Program
     static void Main(string[] args)
     {
         string path = "file.txt";
+        Method1(path);
+        Method1(path);
+
+    }
+    static void Method1(string path)
+    {
         FileManager fileManager = new FileManager(path);
         fileManager.WriteToFile("test");
-        string read = fileManager.ReadFromFile();
-        Console.WriteLine(read);
     }
 }
 
-public class FileManager
+public class FileManager : IDisposable
 {
 
-    private string _filePath;
+    FileStream stream;
+
     public FileManager(string path)
     {
-        _filePath = path;
+        stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
     }
     public void WriteToFile(string filePath)
     {
-
-        using (FileStream fs = new FileStream(_filePath, FileMode.Create, FileAccess.Write))
-        {
-            using (StreamWriter writer = new StreamWriter(fs))
-            {
-                writer.Write(filePath);
-            }
-        }
+        AddText(stream, filePath);
     }
-
-    public string ReadFromFile()
+    public void Dispose()
     {
-        using (FileStream fs = new FileStream(_filePath, FileMode.Open, FileAccess.Read))
+        Dispose(true);
+    }
+    bool _disposed;
+    protected void Dispose(bool disposing)
+    {
+        if (_disposed) return;
+        if (disposing)
         {
-            using (StreamReader reader = new StreamReader(fs))
-            {
-                return reader.ReadToEnd();
-            }
+            stream.Close();
+        }
+        _disposed = true;
+    }
+    public void ReadFromFile()
+    {
+        byte[] buffer = new byte[1024];
+        UTF8Encoding uTF8 = new UTF8Encoding(true);
+        int readLen;
+        while ((readLen = stream.Read(buffer, 0, buffer.Length)) > 0)
+        {
+            Console.WriteLine(uTF8.GetString(buffer, 0, readLen));
         }
     }
     private static void AddText(FileStream fs, string value)
@@ -48,5 +59,8 @@ public class FileManager
         byte[] bytes = new UTF8Encoding(true).GetBytes(value);
         fs.Write(bytes, 0, bytes.Length);
     }
-
+    ~FileManager()
+    {
+        Dispose(false);
+    }
 }
