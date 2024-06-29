@@ -13,12 +13,12 @@ ManagerValidator managerValidator = new ManagerValidator("Navruz", "student", 0,
 
 managerValidator.ValidateEmail("managerValidatorTest.Email");
 managerValidator.ValidateAddress(managerValidator.Address);
-managerValidator.ValidateDepartment(managerValidator.Department); managerValidator.ValidateSalary(5);
+managerValidator.ValidateDepartment(managerValidator.Department); 
 managerValidator.ValidateHireDate(managerValidator.HireDate);
 managerValidator.ValidateSalary(managerValidator.Salary);
 
 Console.WriteLine("___________________________________");
 
 EmployeeService employeeService = new EmployeeService("Navruz", "student", 10, "test@gmail.com", "O.Abdurahmonov 1");
-employeeService.GetEmployees(employeeService.Salary);
+Console.WriteLine(employeeService.GetEmployees(5));
 
