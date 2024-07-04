@@ -10,27 +10,29 @@ namespace TasksDay_5
     {
 
         public List<Menu<T>> Childs { get; set; }
-        public Menu(T menuName)
+        public T GeneralMenu { get; set; }
+        public Menu(T generalMenu)
         {
-            IMenuName menuName1 = menuName;
+            GeneralMenu = generalMenu;
             Childs = new List<Menu<T>>();
         }
 
-        public string Generate(IIcon icon, IUrl url)
+        public string Generate()
         {
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine("<li>");
-            icon.GenerateIcon();
-            url.GenerateUrl();
+            builder.AppendLine(GeneralMenu.GenerateIcon());
+            builder.AppendLine(GeneralMenu.GenerateUrl());
+
 
             builder.AppendLine("</li>");
             if (Childs != null)
             {
+                builder.AppendLine("<ul>");
                 foreach (var child in Childs)
                 {
-                    builder.AppendLine("<ul>");
-                    builder.AppendLine(child.Generate(icon, url));
+                    builder.AppendLine(child.Generate());
                 }
                 builder.AppendLine("</ul>");
             }

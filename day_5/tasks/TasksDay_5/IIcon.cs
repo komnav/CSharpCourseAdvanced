@@ -14,11 +14,11 @@ namespace TasksDay_5
             StringBuilder builder = new StringBuilder();
             if (!string.IsNullOrEmpty(Icon))
             {
-                builder.AppendLine("<img src= ");
+                builder.AppendLine("<img src=\"");
                 builder.AppendLine(Icon);
-                builder.AppendLine(" \t alt= ");
+                builder.AppendLine("\" alt=\"");
                 builder.AppendLine(MenuName);
-                builder.AppendLine(" > ");
+                builder.AppendLine("\">");
             }
             return builder.ToString();
         }

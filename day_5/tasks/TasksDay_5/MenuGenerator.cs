@@ -27,8 +27,8 @@ namespace TasksDay_5
             }
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("<ul>");
-            stringBuilder.AppendLine(menu.Generate(icon, url));
-            stringBuilder.AppendLine("<ul>");
+            stringBuilder.AppendLine(menu.Generate());
+            stringBuilder.AppendLine("</ul>");
             return stringBuilder.ToString();
         }
         public static Menu<T> GenerateMenuToFile(Menu<T> menu, IIcon icon, IUrl url)
