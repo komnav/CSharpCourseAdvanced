@@ -19,19 +19,6 @@ namespace TasksDay_5
 
         public string Generate()
         {
-            //string result = $"<li>{MenuName}</li>";
-
-            //if (Childs != null)
-            //{
-            //    result += "<ul>";
-            //    foreach (var item in Childs)
-            //    {
-            //        result = result + $"<li>{item.MenuName} </li>";
-            //    }
-            //    result = result + "</ul>";
-            //}
-            //return result;
-
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine("<li>");
@@ -42,6 +29,14 @@ namespace TasksDay_5
                 builder.AppendLine(" \t alt= ");
                 builder.AppendLine(MenuName);
                 builder.AppendLine(" > ");
+            }
+            if (!string.IsNullOrEmpty(Url))
+            {
+                builder.AppendLine("<a href= ");
+                builder.AppendLine(Url);
+                builder.AppendLine(" >");
+                builder.AppendLine(MenuName);
+                builder.AppendLine(" </a>");
             }
             builder.AppendLine("</li>");
             if (Childs != null)
@@ -57,3 +52,15 @@ namespace TasksDay_5
         }
     }
 }
+//string result = $"<li>{MenuName}</li>";
+
+//if (Childs != null)
+//{
+//    result += "<ul>";
+//    foreach (var item in Childs)
+//    {
+//        result = result + $"<li>{item.MenuName} </li>";
+//    }
+//    result = result + "</ul>";
+//}
+//return result;
