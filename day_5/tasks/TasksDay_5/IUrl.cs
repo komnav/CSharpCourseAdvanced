@@ -15,11 +15,8 @@ namespace TasksDay_5
             StringBuilder builder = new StringBuilder();
             if (!string.IsNullOrEmpty(Url))
             {
-                builder.AppendLine("<a href=\"");
-                builder.AppendLine(Url);
-                builder.AppendLine("\">");
-                builder.AppendLine(MenuName);
-                builder.AppendLine("</a>");
+                builder.AppendLine($"<a href={Url}> {MenuName} </a>");
+
             }
             return builder.ToString();
         }
