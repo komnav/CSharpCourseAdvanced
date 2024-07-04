@@ -6,45 +6,31 @@ using System.Threading.Tasks;
 
 namespace TasksDay_5
 {
-    public class Menu<T>
+    public class Menu<T> where T : class, IIcon, IUrl, IMenuName
     {
-        public string Icon { get; set; }
-        public string Url { get; set; }
-        public string MenuName { get; set; }
+
         public List<Menu<T>> Childs { get; set; }
-        public Menu(string menuName)
+        public Menu(T menuName)
         {
-            MenuName = menuName;
+            IMenuName menuName1 = menuName;
+            Childs = new List<Menu<T>>();
         }
 
-        public string Generate()
+        public string Generate(IIcon icon, IUrl url)
         {
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine("<li>");
-            if (!string.IsNullOrEmpty(Icon))
-            {
-                builder.AppendLine("<img src= ");
-                builder.AppendLine(Icon);
-                builder.AppendLine(" \t alt= ");
-                builder.AppendLine(MenuName);
-                builder.AppendLine(" > ");
-            }
-            if (!string.IsNullOrEmpty(Url))
-            {
-                builder.AppendLine("<a href= ");
-                builder.AppendLine(Url);
-                builder.AppendLine(" >");
-                builder.AppendLine(MenuName);
-                builder.AppendLine(" </a>");
-            }
+            icon.GenerateIcon();
+            url.GenerateUrl();
+
             builder.AppendLine("</li>");
             if (Childs != null)
             {
                 foreach (var child in Childs)
                 {
                     builder.AppendLine("<ul>");
-                    builder.AppendLine(child.Generate());
+                    builder.AppendLine(child.Generate(icon, url));
                 }
                 builder.AppendLine("</ul>");
             }
@@ -52,6 +38,27 @@ namespace TasksDay_5
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //string result = $"<li>{MenuName}</li>";
 
 //if (Childs != null)

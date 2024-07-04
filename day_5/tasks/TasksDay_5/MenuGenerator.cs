@@ -16,24 +16,25 @@ namespace TasksDay_5
 </ul>
 </ul>
   */
-    public class MenuGenerator
+    public class MenuGenerator<T> where T : class, IIcon, IMenuName, IUrl
     {
-        private static string GenerateMenu<T>(Menu<T> menu)
+        private static string GenerateMenu(Menu<T> menu, IIcon icon, IUrl url)
         {
+
             if (menu.Childs == null)
             {
                 menu.Childs = new List<Menu<T>>();
             }
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("<ul>");
-            stringBuilder.AppendLine(menu.Generate());
+            stringBuilder.AppendLine(menu.Generate(icon, url));
             stringBuilder.AppendLine("<ul>");
             return stringBuilder.ToString();
         }
-        public static Menu<T> GenerateMenuToFile<T>(Menu<T> menu)
+        public static Menu<T> GenerateMenuToFile(Menu<T> menu, IIcon icon, IUrl url)
         {
 
-            string html = GenerateMenu(menu);
+            string html = GenerateMenu(menu, icon, url);
             File.WriteAllText("index.html", html);
             return menu;
         }

@@ -4,11 +4,17 @@
 
 
 
-var teaMenu = new Menu<string>("Chay") { Icon = "tea.png", Url = "komilov.html" };
+var teaMenu = new Menu<GeneralMenu>(new GeneralMenu { MenuName = "Chay", Icon = "tea.png", Url = "komilov.html" });
 
-var sokMenu = new Menu<string>("sok") { Icon = "sok.png", Url = "Navruz.html" };
+var sokMenu = new Menu<GeneralMenu>(new GeneralMenu { MenuName = "Sok", Icon = "sok.png", Url = "Navruz.html" });
 
 
-Menu<string> menu = new Menu<string>("Napitki") { Childs = new List<Menu<string>> { teaMenu, sokMenu } };
-MenuGenerator.GenerateMenuToFile(menu);
+Menu<GeneralMenu> menu = new Menu<GeneralMenu>(new GeneralMenu { MenuName = "Napitki" })
+{
+    Childs = new List<Menu<GeneralMenu>> { teaMenu, sokMenu }
+};
+
+var icon = new GeneralMenu();
+var url = new GeneralMenu();
+MenuGenerator<GeneralMenu>.GenerateMenuToFile(menu, icon, url);
 
