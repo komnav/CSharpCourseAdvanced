@@ -1,42 +1,44 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TasksDay_5
 {
-    public class Menu<T> where T : class, IIcon, IUrl, IMenuName
+    public class MenuGenerator
     {
 
-        public List<Menu<T>> Childs { get; set; }
-        public T GeneralMenu { get; set; }
-        public Menu(T generalMenu)
-        {
-            GeneralMenu = generalMenu;
-            Childs = new List<Menu<T>>();
-        }
-
-        public string Generate()
+        public static string Generate<T>(IMenu<T> menu) where T : IMenu<T>
         {
             StringBuilder builder = new StringBuilder();
 
             builder.AppendLine("<li>");
-            builder.AppendLine(GeneralMenu.GenerateIcon());
-            builder.AppendLine(GeneralMenu.GenerateUrl());
-
+            builder.AppendLine(menu.Generate());
 
             builder.AppendLine("</li>");
-            if (Childs != null)
+
+            if (menu.Childs != null)
             {
                 builder.AppendLine("<ul>");
-                foreach (var child in Childs)
+                foreach (var child in menu.Childs)
                 {
-                    builder.AppendLine(child.Generate());
+                    builder.AppendLine(Generate(child));
                 }
+
                 builder.AppendLine("</ul>");
             }
             return builder.ToString();
+        }
+        public static IMenu<T> GenerateMenuToFile<T>(IMenu<T> menu, string fileName) where T : IMenu<T>
+        {
+
+            string html = Generate(menu);
+            File.WriteAllText(fileName, html);
+            return menu;
         }
     }
 }

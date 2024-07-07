@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TasksDay_5
 {
-    public interface IMenuName
+    public interface IMenu<T> where T : IMenu<T>
     {
-        public string MenuName { get; set; }
+        string Generate();
+        List<T> Childs { get; }
     }
 }
