@@ -12,16 +12,19 @@ namespace DictionaryTask
 
         public void AddTeacher(Guid id, string lastName, string firstName)
         {
-            foreach (KeyValuePair<Guid, Teacher> valuePair in teachers)
-            {
-                Guid newTeacher = valuePair.Key;
-            }
-
             Teacher teacher = new Teacher();
             teacher.Id = id;
             teacher.LastName = lastName;
             teacher.FirstName = firstName;
-            teachers.Add(id, teacher);
+
+            if (teachers.ContainsKey(id))
+            {
+                teachers[id] = teacher;
+            }
+            else
+            {
+                teachers.Add(id, teacher);
+            }
         }
         public bool TryDeleteTeacher(Guid id)
         {
