@@ -59,6 +59,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortedListTask", "day_6\tas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashSatTask", "day_6\tasks\HashSatTask\HashSatTask.csproj", "{65E38F55-BD2B-4B50-945C-8EE32D46BEFD}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "day_7", "day_7", "{639949D2-FD3C-4889-9D0A-655032613DFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWhereHouse", "day_7\MyWhereHouse\MyWhereHouse.csproj", "{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -133,6 +137,10 @@ Global
 		{65E38F55-BD2B-4B50-945C-8EE32D46BEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65E38F55-BD2B-4B50-945C-8EE32D46BEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65E38F55-BD2B-4B50-945C-8EE32D46BEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -160,6 +168,7 @@ Global
 		{3BCAA043-CA4C-41EB-9CCA-57A18B27C82D} = {1CD79A40-EB28-440A-B1E7-757B17342BAB}
 		{9B0E40FC-3629-4AE3-B347-D9CC25BB6F0C} = {1CD79A40-EB28-440A-B1E7-757B17342BAB}
 		{65E38F55-BD2B-4B50-945C-8EE32D46BEFD} = {1CD79A40-EB28-440A-B1E7-757B17342BAB}
+		{76F116E9-2C5D-4271-9DB0-B7BA2C90D7CB} = {639949D2-FD3C-4889-9D0A-655032613DFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C76AF62-8066-423F-A0A3-BBFF99EDC1B7}
