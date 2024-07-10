@@ -18,7 +18,9 @@ namespace MyWarehouse.Repositories
 
         public void Delete(string name)
         {
-            throw new NotImplementedException();
+            var products = GetAll().ToList();
+            products.RemoveAll(x => x.Name == name);
+            SaveAllProducts(products);
         }
 
         public IEnumerable<Product> GetAll()
