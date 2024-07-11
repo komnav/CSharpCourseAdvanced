@@ -11,6 +11,7 @@ namespace MyWhereHouse.Strategies
             _productRepository = productRepository;
         }
         public ConsoleKey StrategyKey => ConsoleKey.C;
+        public string Description => StrategyKey.ToString();
         public void Execute()
         {
             Console.WriteLine("Продать продукт:");

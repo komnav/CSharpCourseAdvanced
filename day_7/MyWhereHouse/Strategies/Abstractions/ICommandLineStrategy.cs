@@ -8,6 +8,7 @@ namespace MyWhereHouse.Strategies.Abstractions
 {
     public interface ICommandLineStrategy
     {
+        public string Description { get;}
         ConsoleKey StrategyKey { get; }
         void Execute();
     }

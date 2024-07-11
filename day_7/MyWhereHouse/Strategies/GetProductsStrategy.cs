@@ -17,6 +17,9 @@ namespace MyWhereHouse.Strategies
         }
 
         public ConsoleKey StrategyKey => ConsoleKey.A;
+
+        public string Description => StrategyKey.ToString();
+
         public void Execute()
         {
             Console.WriteLine("Список продуктов:");

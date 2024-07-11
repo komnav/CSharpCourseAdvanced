@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace MyWhereHouse.Strategies
@@ -13,8 +14,11 @@ namespace MyWhereHouse.Strategies
         IProductRepository _repository;
         public ConsoleKey StrategyKey => ConsoleKey.D;
 
+        public string Description =>StrategyKey.ToString();
+
         public void Execute()
         {
+
             Console.WriteLine("Какой продукт хотите удалить?");
             Console.Write("Введите название продукта:");
             string nameOfProduct = Console.ReadLine();

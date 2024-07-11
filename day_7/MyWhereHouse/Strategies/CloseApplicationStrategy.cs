@@ -12,14 +12,11 @@ namespace MyWarehouse.Strategies
     {
         public ConsoleKey StrategyKey => ConsoleKey.E;
 
+        public string Description => StrategyKey.ToString();
+
         public void Execute()
         {
-            if (StrategyKey == ConsoleKey.Escape)
-            {
-                Environment.Exit(0);
-            }
-
-
+            Environment.Exit(0);
         }
     }
 }

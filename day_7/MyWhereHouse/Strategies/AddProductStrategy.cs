@@ -14,6 +14,8 @@ namespace MyWarehouse.Strategies
 
         public ConsoleKey StrategyKey => ConsoleKey.B;
 
+        public string Description => StrategyKey.ToString();
+
         public void Execute()
         {
             Console.WriteLine("Добавить продукт:");
