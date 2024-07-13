@@ -15,12 +15,11 @@ namespace DI
             _logger = logger;
             _dataBase = dataBase;
         }
-
         public void SendMessage(string message)
         {
             Console.WriteLine("Email - " + message);
-            _dataBase.Seve();
-            _logger.Log("Message succesfully sent");
+            _dataBase.Save();
+            _logger.Log("Message successfully sent");
         }
     }
 }

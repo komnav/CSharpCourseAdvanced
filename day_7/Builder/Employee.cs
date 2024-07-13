@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DI
+namespace Reporter
 {
-    public interface IDataBase
+    public class Employee
     {
-        void Seve();
+        public string Name { get; set; }
+        public decimal Salary { get; set; }
     }
 }

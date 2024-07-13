@@ -9,7 +9,7 @@ namespace MyWhereHouse.Strategies
 {
     public class CommandLineStrategyResolver : ICommandLineStrategyResolver
     {
-        IEnumerable<ICommandLineStrategy> _strategies;
+        private readonly IEnumerable<ICommandLineStrategy> _strategies;
         public CommandLineStrategyResolver(IEnumerable<ICommandLineStrategy> strategies)
         {
             _strategies = strategies;
@@ -17,7 +17,13 @@ namespace MyWhereHouse.Strategies
 
         public ICommandLineStrategy GetResolver(ConsoleKey consoleKey)
         {
-            return _strategies.Single(s => s.StrategyKey == consoleKey);
+            var strategy = _strategies.FirstOrDefault(s => s.StrategyKey == consoleKey);
+
+            if (strategy == null)
+            {
+                strategy = new NorFoundStrategy();
+            }
+            return strategy;
         }
     }
 }

@@ -8,8 +8,9 @@ using MyWhereHouse.Strategies.Abstractions;
 
 
 var serviceCollection = new ServiceCollection();
+
 serviceCollection.AddSingleton<IProductRepository, ProductRepository>();
-serviceCollection.AddSingleton<ICommandLineStrategyResolver, ICommandLineStrategyResolver>();
+serviceCollection.AddSingleton<ICommandLineStrategyResolver, CommandLineStrategyResolver>();
 
 serviceCollection.AddSingleton<ICommandLineStrategy, GetProductsStrategy>();
 serviceCollection.AddSingleton<ICommandLineStrategy, AddProductStrategy>();
@@ -18,6 +19,8 @@ serviceCollection.AddSingleton<ICommandLineStrategy, DeleteProductStrategy>();
 serviceCollection.AddSingleton<ICommandLineStrategy, CloseApplicationStrategy>();
 
 serviceCollection.AddSingleton<Application>();
+
 var provider = serviceCollection.BuildServiceProvider();
-Application application = provider.GetRequiredService<Application>();
+
+var application = provider.GetRequiredService<Application>();
 application.Start();

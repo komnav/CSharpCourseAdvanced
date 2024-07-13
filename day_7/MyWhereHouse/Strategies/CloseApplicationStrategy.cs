@@ -12,7 +12,7 @@ namespace MyWarehouse.Strategies
     {
         public ConsoleKey StrategyKey => ConsoleKey.E;
 
-        public string Description => StrategyKey.ToString();
+        public string Description => "Закрыт программу";
 
         public void Execute()
         {

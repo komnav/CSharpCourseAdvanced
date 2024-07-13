@@ -13,11 +13,11 @@ namespace MyWarehouse
     public class Application
     {
         ICommandLineStrategyResolver _resolver;
-        IEnumerable<ICommandLineStrategy> _strategy;
-        public Application(ICommandLineStrategyResolver commandLineStrategy)
+        IEnumerable<ICommandLineStrategy> _strategys;
+        public Application(ICommandLineStrategyResolver commandLineStrategy, IEnumerable<ICommandLineStrategy> commandLines)
         {
             _resolver = commandLineStrategy;
-
+            _strategys = commandLines;
         }
 
         public void Start()
@@ -43,9 +43,9 @@ namespace MyWarehouse
 
         private void ShowMenu()
         {
-            foreach (var showMenu in _strategy)
+            foreach (var strategy in _strategys)
             {
-                Console.WriteLine(showMenu);
+                Console.WriteLine($"{strategy.StrategyKey})  {strategy.Description}");
             }
             //Console.WriteLine("Выберите действие: \n" +
             //    "а) Показать список продуктов\n" +

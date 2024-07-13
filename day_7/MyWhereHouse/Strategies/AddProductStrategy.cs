@@ -6,7 +6,7 @@ namespace MyWarehouse.Strategies
 {
     internal class AddProductStrategy : ICommandLineStrategy
     {
-        IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
         public AddProductStrategy(IProductRepository productRepository)
         {
             _productRepository = productRepository;
@@ -14,7 +14,7 @@ namespace MyWarehouse.Strategies
 
         public ConsoleKey StrategyKey => ConsoleKey.B;
 
-        public string Description => StrategyKey.ToString();
+        public string Description => "Добавить новый продукт";
 
         public void Execute()
         {

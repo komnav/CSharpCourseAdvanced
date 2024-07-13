@@ -25,8 +25,14 @@ namespace MyWarehouse.Repositories
 
         public IEnumerable<Product> GetAll()
         {
+            if(!File.Exists(filePath))
+            {
+                return Enumerable.Empty<Product>();
+            }
             string[] products = File.ReadAllLines(filePath, Encoding.UTF8);
             Product[] AllProducts = new Product[products.Length];
+
+      
 
             for (int i = 0; i < products.Length; i++)
             {
