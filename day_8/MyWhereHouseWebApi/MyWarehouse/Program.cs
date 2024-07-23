@@ -1,4 +1,4 @@
-using BusinessLayer;
+﻿using BusinessLayer;
 using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,7 +13,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<ProductRepository>(options=>options.UseNpgsql(builder.GetConnectionString("DbConnection")));
+builder.Services.AddDbContext<ProductRepository>(options=>options.UseNpgsql(builder.GetConnectionString("DbConnection")));// Здесь ошибка
 
 builder.Services.AddScoped<IProductRepository,ProductRepository>();
 
