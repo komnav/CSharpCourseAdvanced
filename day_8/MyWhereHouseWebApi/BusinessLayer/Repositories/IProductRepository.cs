@@ -1,7 +1,7 @@
 ﻿
 using Models;
 
-namespace DataAccess
+namespace BusinessLayer.Repositories
 {
     public interface IProductRepository
     {

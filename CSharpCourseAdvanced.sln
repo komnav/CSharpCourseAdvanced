@@ -69,13 +69,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FirstRestAPI", "day_8\First
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyWhereHouseWebApi", "MyWhereHouseWebApi", "{FC4589F8-024F-4E2D-88EF-37613B80F424}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "day_8\MyWhereHouseWebApi\BusinessLayer\BusinessLayer.csproj", "{58288CFB-83CE-498E-80A0-3EF3127288D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "day_8\MyWhereHouseWebApi\BusinessLayer\BusinessLayer.csproj", "{58288CFB-83CE-498E-80A0-3EF3127288D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "day_8\MyWhereHouseWebApi\DataAccess\DataAccess.csproj", "{34B48C25-3CD0-4B6C-AEA1-F80A2EB99708}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "day_8\MyWhereHouseWebApi\DataAccess\DataAccess.csproj", "{34B48C25-3CD0-4B6C-AEA1-F80A2EB99708}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "day_8\MyWhereHouseWebApi\Model\Model.csproj", "{CF0C59E4-43BF-4016-AFBE-8BBB0DA51400}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "day_8\MyWhereHouseWebApi\Model\Model.csproj", "{CF0C59E4-43BF-4016-AFBE-8BBB0DA51400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWarehouse", "day_8\MyWhereHouseWebApi\MyWarehouse\MyWarehouse.csproj", "{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWarehouse", "day_8\MyWhereHouseWebApi\MyWarehouse\MyWarehouse.csproj", "{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "day_9", "day_9", "{9F2D2227-D6E4-47D8-8F43-C55329A93A60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM", "day_9\ATM\ATM.csproj", "{71A5DF10-D2B1-486F-B734-E7FD21D25211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ATM.Tests", "day_9\ATM.Tests\ATM.Tests.csproj", "{1E9569AD-B8B1-4E56-B316-15399AC631EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +181,14 @@ Global
 		{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71A5DF10-D2B1-486F-B734-E7FD21D25211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A5DF10-D2B1-486F-B734-E7FD21D25211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A5DF10-D2B1-486F-B734-E7FD21D25211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A5DF10-D2B1-486F-B734-E7FD21D25211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9569AD-B8B1-4E56-B316-15399AC631EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9569AD-B8B1-4E56-B316-15399AC631EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9569AD-B8B1-4E56-B316-15399AC631EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9569AD-B8B1-4E56-B316-15399AC631EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +223,8 @@ Global
 		{34B48C25-3CD0-4B6C-AEA1-F80A2EB99708} = {FC4589F8-024F-4E2D-88EF-37613B80F424}
 		{CF0C59E4-43BF-4016-AFBE-8BBB0DA51400} = {FC4589F8-024F-4E2D-88EF-37613B80F424}
 		{25ED6D2C-8BF7-478E-8A18-87FDA99E2B36} = {FC4589F8-024F-4E2D-88EF-37613B80F424}
+		{71A5DF10-D2B1-486F-B734-E7FD21D25211} = {9F2D2227-D6E4-47D8-8F43-C55329A93A60}
+		{1E9569AD-B8B1-4E56-B316-15399AC631EE} = {9F2D2227-D6E4-47D8-8F43-C55329A93A60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C76AF62-8066-423F-A0A3-BBFF99EDC1B7}
